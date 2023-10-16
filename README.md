@@ -1,12 +1,32 @@
 # helm-charts
 
-Helm Charts for several Docker images:
+A collection of Helm charts.
+
 - [UniFi Controller](https://hub.docker.com/r/linuxserver/unifi-controller)
 
 
-## TL;DR
+## Installation
 
-```bash
-$ helm repo add qonstrukt https://jespernohr.github.io/helm-charts/
-$ helm repo update
+The Helm repository can be installed as follows:
+
+```console
+helm repo add jespernohr https://jespernohr.github.io/helm-charts
 ```
+
+You can then search the application charts:
+
+```console
+helm search repo jespernohr
+```
+
+## Documentation
+
+ToDo
+
+## Contributing
+
+ToDo
+
+## License
+
+ToDo
