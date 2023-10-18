@@ -1,8 +1,9 @@
 # helm-charts
 
-A collection of Helm charts.
+A collection of Helm charts for Kubernetes
 
 - [UniFi Controller](https://hub.docker.com/r/linuxserver/unifi-controller)
+- [metallb](https://hub.docker.com/r/bitnamicharts/metallb)
 
 
 ## Installation
