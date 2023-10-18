@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  metallb:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-10-18T14:58:00.890930373Z"
+    description: A Helm chart for Kubernetes
+    digest: e9684737516dc287adb8cd738b5c1a09af318b6a8fe605efd47fd60afc57fb88
+    name: metallb
+    type: application
+    urls:
+    - https://github.com/jespernohr/helm-charts/releases/download/metallb-0.1.1/metallb-0.1.1.tgz
+    version: 0.1.1
   unifi-controller:
   - apiVersion: v2
     appVersion: 7.5.176
@@ -20,4 +31,4 @@ entries:
     urls:
     - https://jespernohr.github.io/helm-charts/unifi-controller-2.3.0.tgz
     version: 2.3.0
-generated: "2023-10-16T16:40:31.867067312+02:00"
+generated: "2023-10-18T14:58:01.075680688Z"
