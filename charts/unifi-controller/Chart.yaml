@@ -1,14 +1,40 @@
 apiVersion: v2
 name: unifi-controller
 description: A Helm Chart for deploying a UniFi controller to Kubernetes
-icon: https://assets-global.website-files.com/622b70d8906c7ab0c03f77f8/63b40a92093c6b2f3767e4e6_tMCv8T-y_400x400.png
-type: application
-version: 2.3.0
 keywords:
   - unifi
   - controller
   - ubiquiti
 home: https://github.com/jespernohr/helm-charts/tree/main/charts/unifi-controller
+sources:
+  - https://github.com/linuxserver/docker-unifi-controller
+icon: https://assets-global.website-files.com/622b70d8906c7ab0c03f77f8/63b40a92093c6b2f3767e4e6_tMCv8T-y_400x400.png
+# A chart can be either an 'application' or a 'library' chart.
+#
+# Application charts are a collection of templates that can be packaged into versioned archives
+# to be deployed.
+#
+# Library charts provide useful utilities or functions for the chart developer. They're included as
+# a dependency of application charts to inject those utilities and functions into the rendering
+# pipeline. Library charts do not define any templates and therefore cannot be deployed.
+type: application
+
+# The optional kubeVersion field can define semver constraints on supported Kubernetes versions.
+# Helm will validate the version constraints when installing the chart and fail if the cluster
+# runs an unsupported Kubernetes version.
+kubeVersion: ">= 1.19.0-0"
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 2.3.1
+
+
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application. Versions are not expected to
+# follow Semantic Versioning. They should reflect the version the application is using.
+# It is recommended to use it with quotes.
 appVersion: "7.5.176"
 maintainers:
   - name: Jesper Nøhr
