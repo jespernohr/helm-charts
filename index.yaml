@@ -3,6 +3,33 @@ entries:
   metallb:
   - apiVersion: v2
     appVersion: v0.13.11
+    created: "2023-10-19T09:34:49.9889299Z"
+    dependencies:
+    - condition: crds.enabled
+      name: crds
+      repository: ""
+      version: 0.0.0
+    description: A network load-balancer implementation for Kubernetes using standard
+      routing protocols
+    digest: c507495e48fdd03db77fd77760e432a628c93ac251edef8857587da40ca68f0a
+    home: https://github.com/jespernohr/helm-charts/tree/main/charts/metallb
+    icon: https://metallb.universe.tf/images/logo/metallb-white.png
+    keywords:
+    - metallb
+    - loadbalancer
+    kubeVersion: '>= 1.19.0-0'
+    maintainers:
+    - email: jespernohr@gmail.com
+      name: Jesper Nøhr
+    name: metallb
+    sources:
+    - https://github.com/metallb/metallb
+    type: application
+    urls:
+    - https://github.com/jespernohr/helm-charts/releases/download/metallb-0.1.3/metallb-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: v0.13.11
     created: "2023-10-19T08:57:08.515027914Z"
     description: A network load-balancer implementation for Kubernetes using standard
       routing protocols
@@ -75,4 +102,4 @@ entries:
     urls:
     - https://jespernohr.github.io/helm-charts/unifi-controller-2.3.0.tgz
     version: 2.3.0
-generated: "2023-10-19T08:57:08.652395157Z"
+generated: "2023-10-19T09:34:49.9889436Z"
