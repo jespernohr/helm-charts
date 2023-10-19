@@ -2,6 +2,28 @@ apiVersion: v1
 entries:
   metallb:
   - apiVersion: v2
+    appVersion: v0.13.11
+    created: "2023-10-19T08:57:08.515027914Z"
+    description: A network load-balancer implementation for Kubernetes using standard
+      routing protocols
+    digest: 301297281fa9ca2ff327e64d25493cb31ce4e67330d237a95a15f49717f9df67
+    home: https://github.com/jespernohr/helm-charts/tree/main/charts/metallb
+    icon: https://metallb.universe.tf/images/logo/metallb-white.png
+    keywords:
+    - metallb
+    - loadbalancer
+    kubeVersion: '>= 1.19.0-0'
+    maintainers:
+    - email: jespernohr@gmail.com
+      name: Jesper Nøhr
+    name: metallb
+    sources:
+    - https://github.com/metallb/metallb
+    type: application
+    urls:
+    - https://github.com/jespernohr/helm-charts/releases/download/metallb-0.1.2/metallb-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
     appVersion: 1.16.0
     created: "2023-10-18T14:58:00.890930373Z"
     description: A Helm chart for Kubernetes
@@ -12,6 +34,28 @@ entries:
     - https://github.com/jespernohr/helm-charts/releases/download/metallb-0.1.1/metallb-0.1.1.tgz
     version: 0.1.1
   unifi-controller:
+  - apiVersion: v2
+    appVersion: 7.5.176
+    created: "2023-10-19T08:57:08.652386057Z"
+    description: A Helm Chart for deploying a UniFi controller to Kubernetes
+    digest: 5d66056688b6689026a49b95d6a1314f96fc24fa7273640f801da8443ac190bf
+    home: https://github.com/jespernohr/helm-charts/tree/main/charts/unifi-controller
+    icon: https://assets-global.website-files.com/622b70d8906c7ab0c03f77f8/63b40a92093c6b2f3767e4e6_tMCv8T-y_400x400.png
+    keywords:
+    - unifi
+    - controller
+    - ubiquiti
+    kubeVersion: '>= 1.19.0-0'
+    maintainers:
+    - email: jespernohr@gmail.com
+      name: Jesper Nøhr
+    name: unifi-controller
+    sources:
+    - https://github.com/linuxserver/docker-unifi-controller
+    type: application
+    urls:
+    - https://github.com/jespernohr/helm-charts/releases/download/unifi-controller-2.3.1/unifi-controller-2.3.1.tgz
+    version: 2.3.1
   - apiVersion: v2
     appVersion: 7.5.176
     created: "2023-10-16T16:40:31.874651898+02:00"
@@ -31,4 +75,4 @@ entries:
     urls:
     - https://jespernohr.github.io/helm-charts/unifi-controller-2.3.0.tgz
     version: 2.3.0
-generated: "2023-10-18T14:58:01.075680688Z"
+generated: "2023-10-19T08:57:08.652395157Z"
