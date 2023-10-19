@@ -1,17 +1,11 @@
 apiVersion: v2
-name: metallb
-description: A network load-balancer implementation for Kubernetes using standard routing protocols
-keywords:
-  - metallb
-  - loadbalancer
-home: https://github.com/jespernohr/helm-charts/tree/main/charts/metallb
+name: crds
+description: MetalLB CRDs
+home: https://metallb.universe.tf
 sources:
   - https://github.com/metallb/metallb
 icon: https://metallb.universe.tf/images/logo/metallb-white.png
-dependencies:
-- name: crds
-  condition: crds.enabled
-  version: 0.0.0
+
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -22,22 +16,14 @@ dependencies:
 # pipeline. Library charts do not define any templates and therefore cannot be deployed.
 type: application
 
-# The optional kubeVersion field can define semver constraints on supported Kubernetes versions.
-# Helm will validate the version constraints when installing the chart and fail if the cluster
-# runs an unsupported Kubernetes version.
-kubeVersion: ">= 1.19.0-0"
-
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.1.3
+# NOTE: this value is updated by the metallb release process
+version: 0.0.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
-# It is recommended to use it with quotes.
-appVersion: "v0.13.11"
-
-maintainers:
-  - name: Jesper Nøhr
-    email: jespernohr@gmail.com
+# NOTE: this value is updated by the metallb release process
+appVersion: v0.0.0
