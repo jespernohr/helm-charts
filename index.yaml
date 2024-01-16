@@ -1,5 +1,26 @@
 apiVersion: v1
 entries:
+  dayz:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-01-16T12:55:47.659771616Z"
+    description: A Helm chart for Kubernetes
+    digest: f9f6860fa2f3cad4423902b8b4f5d059db91e8f97338c13f24ee134f9a370b24
+    home: https://github.com/jespernohr/helm-charts/tree/main/charts/dayz
+    keywords:
+    - dayz
+    - zombies
+    - pvp
+    maintainers:
+    - email: jespernohr@gmail.com
+      name: Jesper Nøhr
+    name: dayz
+    sources:
+    - https://docker.io/senfo/dayz-sa-server-docker
+    type: application
+    urls:
+    - https://github.com/jespernohr/helm-charts/releases/download/dayz-0.1.0/dayz-0.1.0.tgz
+    version: 0.1.0
   metallb:
   - apiVersion: v2
     appVersion: v0.13.11
@@ -102,4 +123,4 @@ entries:
     urls:
     - https://jespernohr.github.io/helm-charts/unifi-controller-2.3.0.tgz
     version: 2.3.0
-generated: "2023-10-19T09:34:49.9889436Z"
+generated: "2024-01-16T12:55:47.659792325Z"
