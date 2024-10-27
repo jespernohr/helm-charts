@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "dayz-dedicated-server.fullname" . }}
+  labels:
+    app: {{ include "dayz-dedicated-server.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "dayz-dedicated-server.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "dayz-dedicated-server.name" . }}
+    spec:
+      containers:
+        - name: dayz-dedicated-server
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.ports.game }}
+              protocol: UDP
+            - containerPort: {{ .Values.service.ports.steam }}
+              protocol: UDP
+            - containerPort: {{ .Values.service.ports.rcon }}
+              protocol: TCP
+          env:
+            - name: STEAMACCOUNT
+              value: "anonymous"
+            - name: CPUCOUNT
+              value: "2"
+            - name: PORT
+              value: "2302"
+          resources:
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+      nodeSelector: {{ .Values.nodeSelector }}
+      tolerations: {{ .Values.tolerations }}
+      affinity: {{ .Values.affinity }}

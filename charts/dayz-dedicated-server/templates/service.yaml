@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "dayz-dedicated-server.fullname" . }}
+  labels:
+    app: {{ include "dayz-dedicated-server.name" . }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - name: game
+      port: {{ .Values.service.ports.game }}
+      targetPort: {{ .Values.service.ports.game }}
+      protocol: UDP
+    - name: steam
+      port: {{ .Values.service.ports.steam }}
+      targetPort: {{ .Values.service.ports.steam }}
+      protocol: UDP
+    - name: rcon
+      port: {{ .Values.service.ports.rcon }}
+      targetPort: {{ .Values.service.ports.rcon }}
+      protocol: TCP
+  selector:
+    app: {{ include "dayz-dedicated-server.name" . }}
