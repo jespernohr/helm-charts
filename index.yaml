@@ -24,6 +24,15 @@ entries:
   dayz-dedicated-server:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2024-10-27T15:05:30.310829355Z"
+    description: A Helm chart for deploying a DayZ dedicated server on Kubernetes
+    digest: d4da874798f9f6cfe83e9c1c63059b2ceccc3a7443dad7d0e0d908583bf8875a
+    name: dayz-dedicated-server
+    urls:
+    - https://github.com/jespernohr/helm-charts/releases/download/dayz-dedicated-server-0.1.1/dayz-dedicated-server-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2024-10-27T14:24:43.114553362Z"
     description: A Helm chart for deploying a DayZ dedicated server on Kubernetes
     digest: 1d5e79d104809aba58ec29a8758c9b54d794515d7409c514d6205b147d15f170
@@ -133,4 +142,4 @@ entries:
     urls:
     - https://jespernohr.github.io/helm-charts/unifi-controller-2.3.0.tgz
     version: 2.3.0
-generated: "2024-10-27T14:24:43.114575133Z"
+generated: "2024-10-27T15:05:30.31084809Z"
