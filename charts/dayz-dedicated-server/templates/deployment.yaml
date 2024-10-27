@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "dayz-dedicated-server.fullname" . }}
+  namespace: {{ .Release.Namespace }}
   labels:
     app: {{ include "dayz-dedicated-server.name" . }}
 spec:
@@ -9,36 +10,111 @@ spec:
   selector:
     matchLabels:
       app: {{ include "dayz-dedicated-server.name" . }}
+  strategy:
+    type: RollingUpdate
   template:
     metadata:
       labels:
         app: {{ include "dayz-dedicated-server.name" . }}
     spec:
+      volumes:
+        - name: ssh-config
+          persistentVolumeClaim:
+            claimName: ssh-config-pvc
+        - name: dayz-data
+          persistentVolumeClaim:
+            claimName: dayz-data-pvc
+        - name: dayz-profile
+          persistentVolumeClaim:
+            claimName: dayz-profile-pvc
+        - name: dayz-server-cfg
+          configMap:
+            name: {{ include "dayz-dedicated-server.fullname" . }}-server-cfg
+            items:
+              - key: serverDZ.cfg
+                path: serverDZ.cfg
+        - name: dayz-beserver-cfg
+          configMap:
+            name: {{ include "dayz-dedicated-server.fullname" . }}-beserver-cfg
+            items:
+              - key: BEServer_x64.cfg
+                path: BEServer_x64.cfg
       containers:
-        - name: dayz-dedicated-server
+        - name: dayz
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - containerPort: {{ .Values.service.ports.game }}
-              protocol: UDP
-            - containerPort: {{ .Values.service.ports.steam }}
-              protocol: UDP
-            - containerPort: {{ .Values.service.ports.rcon }}
-              protocol: TCP
+          volumeMounts:
+            - mountPath: "/home/steam/dayz"
+              name: dayz-data
+            - mountPath: "/home/steam/profile"
+              name: dayz-profile
+            - name: dayz-server-cfg
+              mountPath: "/home/steam/serverDZ.cfg"
+              subPath: serverDZ.cfg
+            - name: dayz-beserver-cfg
+              mountPath: "/home/steam/battleye/BEServer_x64.cfg"
+              subPath: BEServer_x64.cfg
           env:
+            - name: GAME
+              value: dayz
+            - name: HOME
+              value: /home/steam
+            - name: APPID
+              value: "223350"
             - name: STEAMACCOUNT
-              value: "anonymous"
+              valueFrom:
+                secretKeyRef:
+                  name: steamaccount
+                  key: STEAMACCOUNT
+            - name: STEAMPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: steamaccount
+                  key: STEAMPASSWORD
             - name: CPUCOUNT
-              value: "2"
+              value: "4"
             - name: PORT
               value: "2302"
-          resources:
-            limits:
-              cpu: {{ .Values.resources.limits.cpu }}
-              memory: {{ .Values.resources.limits.memory }}
-            requests:
-              cpu: {{ .Values.resources.requests.cpu }}
-              memory: {{ .Values.resources.requests.memory }}
-      nodeSelector: {{ .Values.nodeSelector }}
-      tolerations: {{ .Values.tolerations }}
-      affinity: {{ .Values.affinity }}
+        - name: openssh-server
+          image: lscr.io/linuxserver/openssh-server:latest
+          imagePullPolicy: Always
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: TZ
+              value: "America/New_York"
+            - name: SUDO_ACCESS
+              value: "false"
+            - name: PASSWORD_ACCESS
+              value: "true"
+            - name: USER_PASSWORD
+              valueFrom: 
+                secretKeyRef:
+                  name: ssh-sec
+                  key: USER_PASSWORD
+          volumeMounts:
+            - mountPath: "/config"
+              name: ssh-config
+            - mountPath: "/home/steam/dayz"
+              name: dayz-data
+            - mountPath: "/home/steam/profile"
+              name: dayz-profile
+          ports:
+            - name: ssh
+              containerPort: 2222
+            - name: rcon
+              containerPort: 2310
+            - name: steam-27016
+              containerPort: 27016
+            - name: steam-8766
+              containerPort: 8766
+            - name: game-2305
+              containerPort: 2305
+            - name: game-2304
+              containerPort: 2304
+            - name: game-2303
+              containerPort: 2303
+            - name: game-2302
+              containerPort: 2302
