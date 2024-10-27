@@ -1,0 +1,25 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/jespernohr/dayz-dedicated-server-k8s
+  tag: "0.1.0"
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  ports:
+    game: 2302
+    steam: 8766
+    rcon: 2310
+
+resources:
+  limits:
+    cpu: "2"
+    memory: "4Gi"
+  requests:
+    cpu: "1"
+    memory: "2Gi"
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
