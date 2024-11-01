@@ -1,7 +1,7 @@
 
 # DayZ Dedicated Server Helm Chart
 
-A Helm chart for deploying a DayZ dedicated server on Kubernetes, using the custom Docker image `ghcr.io/jespernohr/dayz-dedicated-server:latest`.
+A Helm chart for deploying a DayZ dedicated server on Kubernetes, using the custom Docker image `ghcr.io/jespernohr/dayz-dedicated-server`.
 
 ## Prerequisites
 
