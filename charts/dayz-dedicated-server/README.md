@@ -26,8 +26,8 @@ The following tables list the configurable parameters of the DayZ server chart a
 | Parameter            | Description                           | Default |
 |----------------------|---------------------------------------|---------|
 | `replicaCount`       | Number of replicas for the server    | `1`     |
-| `image.repository`   | Image repository                     | `ghcr.io/jespernohr/dayz-dedicated-server-k8s` |
-| `image.tag`          | Image tag                            | `0.1.0` |
+| `image.repository`   | Image repository                     | `ghcr.io/jespernohr/dayz-dedicated-server` |
+| `image.tag`          | Image tag                            | `latest` |
 | `image.pullPolicy`   | Image pull policy                    | `IfNotPresent` |
 
 ### Service Settings
