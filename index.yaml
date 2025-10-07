@@ -31,6 +31,27 @@ entries:
   dayz-dedicated-server-razorbladex401:
   - apiVersion: v2
     appVersion: stable
+    created: "2025-10-07T13:17:46.721569954Z"
+    description: Run a DayZ Dedicated Server on Kubernetes (templated for UDP, PVC,
+      and serverDZ.cfg)
+    digest: 2c326a8e67890c0dd3ddcb83181f1225730b89eee1e064506971e52ed508c6ed
+    home: https://github.com/razorbladex401/dayz-dedicated-server-k8s
+    icon: https://raw.githubusercontent.com/kubernetes/community/master/icons/png/resources/unlabeled/ports.png
+    keywords:
+    - dayz
+    - gameserver
+    - udp
+    kubeVersion: '>=1.24.0-0'
+    maintainers:
+    - email: you@example.com
+      name: you
+    name: dayz-dedicated-server-razorbladex401
+    type: application
+    urls:
+    - https://github.com/jespernohr/helm-charts/releases/download/dayz-dedicated-server-razorbladex401-1.0.1/dayz-dedicated-server-razorbladex401-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: stable
     created: "2025-10-07T13:03:21.100484117Z"
     description: Run a DayZ Dedicated Server on Kubernetes (templated for UDP, PVC,
       and serverDZ.cfg)
@@ -152,4 +173,4 @@ entries:
     urls:
     - https://jespernohr.github.io/helm-charts/unifi-controller-2.3.0.tgz
     version: 2.3.0
-generated: "2025-10-07T13:03:21.100508332Z"
+generated: "2025-10-07T13:17:46.721592676Z"
