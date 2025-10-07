@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "dayz.fullname" . }}-servercfg
+  labels:
+    {{- include "dayz.labels" . | nindent 4 }}
+data:
+  serverDZ.cfg: |
+    hostname = "{{ .Values.serverCfg.hostname }}";
+    password = "{{ .Values.serverCfg.password }}";
+    passwordAdmin = "{{ .Values.serverCfg.passwordAdmin }}";
+    logFile = "{{ .Values.serverCfg.logFile }}";
+    maxPlayers = {{ .Values.serverCfg.maxPlayers }};
+    verifySignatures = {{ .Values.serverCfg.verifySignatures }};
+    forceSameBuild = {{ .Values.serverCfg.forceSameBuild }};
+    disableVoN = {{ .Values.serverCfg.disableVoN }};
+    vonCodecQuality = {{ .Values.serverCfg.vonCodecQuality }};
+    disable3rdPerson = {{ .Values.serverCfg.disable3rdPerson }};
+    serverTimeAcceleration = {{ .Values.serverCfg.serverTimeAcceleration }};
+    serverNightTimeAcceleration = {{ .Values.serverCfg.serverNightTimeAcceleration }};
+    serverTimePersistent = {{ .Values.serverCfg.serverTimePersistent }};
+    guaranteedUpdates = {{ .Values.serverCfg.guaranteedUpdates }};
+    loginQueueConcurrentPlayers = {{ .Values.serverCfg.loginQueueConcurrentPlayers }};
+    loginQueueMaxPlayers = {{ .Values.serverCfg.loginQueueMaxPlayers }};
+    instanceId = {{ .Values.serverCfg.instanceId }};
+    storageAutoFix = {{ .Values.serverCfg.storageAutoFix }};

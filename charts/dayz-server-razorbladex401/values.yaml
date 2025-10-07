@@ -1,0 +1,135 @@
+# Image
+image:
+  repository: razorbladex401/dayz
+  tag: latest
+  pullPolicy: IfNotPresent
+
+# Container resources
+resources:
+  requests:
+    cpu: "2"
+    memory: "6Gi"
+  limits:
+    cpu: "4"
+    memory: "10Gi"
+
+# Pod security & scheduling
+podSecurityContext:
+  fsGroup: 1000
+  runAsUser: 1000
+  runAsGroup: 1000
+  runAsNonRoot: true
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: false
+  capabilities:
+    drop: ["ALL"]
+
+nodeSelector: {}
+affinity: {}
+tolerations: []
+
+# Data volume
+persistence:
+  enabled: true
+  size: 50Gi
+  storageClass: ""
+  accessModes:
+    - ReadWriteOnce
+  mountPath: /dayz
+
+# Networking
+service:
+  type: LoadBalancer   # For bare-metal, pair with MetalLB; otherwise use NodePort
+  annotations: {}
+  externalTrafficPolicy: Local
+  # DayZ uses UDP 2302-2305
+  ports:
+    - name: game-2302
+      port: 2302
+      targetPort: 2302
+      protocol: UDP
+    - name: steam-2303
+      port: 2303
+      targetPort: 2303
+      protocol: UDP
+    - name: steam-2304
+      port: 2304
+      targetPort: 2304
+      protocol: UDP
+    - name: steam-2305
+      port: 2305
+      targetPort: 2305
+      protocol: UDP
+
+# Env for server (customize as needed by the image)
+env:
+  # General
+  - name: SERVER_NAME
+    value: "My DayZ on K8s"
+  - name: SERVER_PORT
+    value: "2302"
+  - name: MAX_PLAYERS
+    value: "32"
+  - name: HOSTNAME
+    value: "dayz-k8s"
+  - name: CPU_COUNT
+    value: "4"
+  - name: UPDATE_ON_START
+    value: "true"
+
+  # Optional Steam creds for Workshop mods; set via secret if used
+  # - name: STEAM_USER
+  #   valueFrom:
+  #     secretKeyRef: { name: {{ include "dayz.fullname" . }}-steam, key: username }
+  # - name: STEAM_PASSWORD
+  #   valueFrom:
+  #     secretKeyRef: { name: {{ include "dayz.fullname" . }}-steam, key: password }
+
+# Server configuration (templated into serverDZ.cfg)
+serverCfg:
+  hostname: "My DayZ on K8s"
+  password: ""               # server join password (optional)
+  passwordAdmin: "adminpass"
+  logFile: "server_console.log"
+  maxPlayers: 32
+  verifySignatures: 2
+  forceSameBuild: 1
+  disableVoN: 0
+  vonCodecQuality: 20
+  disable3rdPerson: 0
+  serverTimeAcceleration: 6
+  serverNightTimeAcceleration: 1
+  serverTimePersistent: 1
+  guaranteedUpdates: 1
+  loginQueueConcurrentPlayers: 5
+  loginQueueMaxPlayers: 500
+  instanceId: 1
+  storageAutoFix: 1
+
+# ServiceAccount
+serviceAccount:
+  create: true
+  name: ""
+  annotations: {}
+
+# Liveness/Readiness (basic — adjust to your image)
+probes:
+  enabled: true
+  liveness:
+    exec: ["/bin/sh", "-c", "pidof DayZServer_x64 || pidof DayZServer || ps aux | grep -i dayz | grep -v grep"]
+    initialDelaySeconds: 120
+    periodSeconds: 30
+  readiness:
+    exec: ["/bin/sh", "-c", "netstat -anu | grep :2302"]
+    initialDelaySeconds: 90
+    periodSeconds: 15
+
+# Extra args/command override
+command: []
+args: []
+
+# Extra env, volumeMounts, volumes
+extraEnv: []
+extraVolumeMounts: []
+extraVolumes: []
