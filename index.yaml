@@ -2,6 +2,15 @@ apiVersion: v1
 entries:
   dayz-dedicated-server:
   - apiVersion: v2
+    appVersion: 0.1.2
+    created: "2025-10-07T13:03:20.915638759Z"
+    description: A Helm chart for deploying a DayZ dedicated server on Kubernetes
+    digest: 5907de9c6e7844426c3b09ac04efd6a81424bd647eff1b5e7656384c3bfd1ef7
+    name: dayz-dedicated-server
+    urls:
+    - https://github.com/jespernohr/helm-charts/releases/download/dayz-dedicated-server-0.1.2/dayz-dedicated-server-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
     appVersion: 0.1.0
     created: "2024-10-27T15:05:30.310829355Z"
     description: A Helm chart for deploying a DayZ dedicated server on Kubernetes
@@ -19,6 +28,28 @@ entries:
     urls:
     - https://github.com/jespernohr/helm-charts/releases/download/dayz-dedicated-server-0.1.0/dayz-dedicated-server-0.1.0.tgz
     version: 0.1.0
+  dayz-dedicated-server-razorbladex401:
+  - apiVersion: v2
+    appVersion: stable
+    created: "2025-10-07T13:03:21.100484117Z"
+    description: Run a DayZ Dedicated Server on Kubernetes (templated for UDP, PVC,
+      and serverDZ.cfg)
+    digest: 1a06fad1905461eca8e4aafbc49c390a89f3ef70e687a9c6ed3c447283f9d18d
+    home: https://github.com/razorbladex401/dayz-dedicated-server-k8s
+    icon: https://raw.githubusercontent.com/kubernetes/community/master/icons/png/resources/unlabeled/ports.png
+    keywords:
+    - dayz
+    - gameserver
+    - udp
+    kubeVersion: '>=1.24.0-0'
+    maintainers:
+    - email: you@example.com
+      name: you
+    name: dayz-dedicated-server-razorbladex401
+    type: application
+    urls:
+    - https://github.com/jespernohr/helm-charts/releases/download/dayz-dedicated-server-razorbladex401-1.0.0/dayz-dedicated-server-razorbladex401-1.0.0.tgz
+    version: 1.0.0
   metallb:
   - apiVersion: v2
     appVersion: v0.13.11
@@ -121,4 +152,4 @@ entries:
     urls:
     - https://jespernohr.github.io/helm-charts/unifi-controller-2.3.0.tgz
     version: 2.3.0
-generated: "2024-10-27T15:05:30.31084809Z"
+generated: "2025-10-07T13:03:21.100508332Z"
