@@ -1,0 +1,13 @@
+# Helm chart packages
+*.tgz
+
+# Chart-releaser packages directory
+.cr-release-packages/
+
+# Helm dependencies
+charts/*/charts/*.tgz
+charts/*/requirements.lock
+
+# Temporary files
+.DS_Store
+*.tmp
