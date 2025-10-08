@@ -1,6 +1,6 @@
 apiVersion: v2
 name: dayz-dedicated-server-razorbladex401
-version: 1.0.2
+version: 1.0.3
 kubeVersion: ">=1.24.0-0"
 description: Run a DayZ Dedicated Server on Kubernetes (templated for UDP, PVC, and serverDZ.cfg)
 type: application

@@ -1,0 +1,6 @@
+Thanks for installing dayz-dedicated-server!
+
+1. Expose UDP 2302–2305 to the Internet.  
+2. Data is persisted at the PVC mounted at /dayz.  
+3. Edit values.yaml -> serverCfg.* to configure your game.  
+4. Optionally, supply Steam credentials for Workshop mods.
