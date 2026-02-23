@@ -13,6 +13,7 @@ A collection of production-ready Helm charts for Kubernetes applications includi
 | [dayz-dedicated-server-razorbladex401](./charts/dayz-server-razorbladex401) | DayZ Server with custom configs | ![Version](https://img.shields.io/badge/version-1.0.2-blue) | stable |
 | [unifi-controller](./charts/unifi-controller) | Ubiquiti UniFi Network Controller | ![Version](https://img.shields.io/badge/version-2.3.2-blue) | 7.5.176 |
 | [metallb](./charts/metallb) | Load Balancer for bare metal Kubernetes | ![Version](https://img.shields.io/badge/version-0.1.4-blue) | v0.13.11 |
+| [radarr](./charts/radarr) | A fork of Sonarr to work with movies à la Couchpotato | ![Version](https://img.shields.io/badge/version-1.0.0-blue) | 6.0.4.10291 |
 
 ## 🚀 Quick Start
 
@@ -87,6 +88,30 @@ Load balancer implementation for bare metal Kubernetes clusters.
 helm install metallb jespernohr/metallb \
   --namespace metallb-system \
   --create-namespace
+```
+
+### Radarr
+A movie collection manager for Usenet and BitTorrent users.
+
+**Features:**
+- Latest Radarr version (6.0.4.10291) with LinuxServer.io image
+- Configurable persistence for config, media, and downloads
+- Built-in Prometheus metrics with Exportarr sidecar
+- Health checks and auto-scaling support
+- Ingress with TLS support
+
+```bash
+# Basic installation
+helm install radarr jespernohr/radarr
+
+# With persistent media and downloads storage
+helm install radarr jespernohr/radarr \
+  --set persistence.media.enabled=true \
+  --set persistence.media.size=500Gi \
+  --set persistence.downloads.enabled=true \
+  --set persistence.downloads.size=100Gi \
+  --set ingress.enabled=true \
+  --set ingress.hosts[0].host=radarr.example.com
 ```
 
 ## ⚙️ Configuration
