@@ -1,4 +1,4 @@
-# Jesper Nøhr's Helm Charts
+# Helm Charts
 
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/jespernohr)](https://artifacthub.io/packages/search?repo=jespernohr)
 [![Release Charts](https://github.com/jespernohr/helm-charts/actions/workflows/release.yaml/badge.svg)](https://github.com/jespernohr/helm-charts/actions/workflows/release.yaml)

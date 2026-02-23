@@ -1,0 +1,80 @@
+{{- if .Values.persistence.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "radarr.configVolumeName" . }}
+  labels:
+    {{- include "radarr.labels" . | nindent 4 }}
+    app.kubernetes.io/component: config
+  {{- with .Values.persistence.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.size }}
+  {{- if .Values.persistence.storageClass }}
+  {{- if (eq "-" .Values.persistence.storageClass) }}
+  storageClassName: ""
+  {{- else }}
+  storageClassName: {{ .Values.persistence.storageClass }}
+  {{- end }}
+  {{- end }}
+{{- end }}
+---
+{{- if and .Values.persistence.media.enabled (not .Values.persistence.media.existingClaim) }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "radarr.mediaVolumeName" . }}
+  labels:
+    {{- include "radarr.labels" . | nindent 4 }}
+    app.kubernetes.io/component: media
+  {{- with .Values.persistence.media.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.media.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.media.size }}
+  {{- if .Values.persistence.media.storageClass }}
+  {{- if (eq "-" .Values.persistence.media.storageClass) }}
+  storageClassName: ""
+  {{- else }}
+  storageClassName: {{ .Values.persistence.media.storageClass }}
+  {{- end }}
+  {{- end }}
+{{- end }}
+---
+{{- if and .Values.persistence.downloads.enabled (not .Values.persistence.downloads.existingClaim) }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "radarr.downloadsVolumeName" . }}
+  labels:
+    {{- include "radarr.labels" . | nindent 4 }}
+    app.kubernetes.io/component: downloads
+  {{- with .Values.persistence.downloads.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.downloads.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.downloads.size }}
+  {{- if .Values.persistence.downloads.storageClass }}
+  {{- if (eq "-" .Values.persistence.downloads.storageClass) }}
+  storageClassName: ""
+  {{- else }}
+  storageClassName: {{ .Values.persistence.downloads.storageClass }}
+  {{- end }}
+  {{- end }}
+{{- end }}
