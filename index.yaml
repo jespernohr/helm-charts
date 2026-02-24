@@ -203,6 +203,29 @@ entries:
   radarr:
   - apiVersion: v2
     appVersion: 6.0.4.10291
+    created: "2026-02-24T12:43:35.311862394Z"
+    description: A fork of Sonarr to work with movies à la Couchpotato
+    digest: 20839c3a9e894ccf601f68ae7b763eed09a61e3394aa2a7bfb214f41a8a828f7
+    home: https://radarr.video/
+    icon: https://raw.githubusercontent.com/Radarr/Radarr/develop/Logo/256.png
+    keywords:
+    - radarr
+    - movies
+    - torrent
+    - usenet
+    - download
+    maintainers:
+    - name: jespernohr
+    name: radarr
+    sources:
+    - https://github.com/Radarr/Radarr
+    - https://github.com/linuxserver/docker-radarr
+    type: application
+    urls:
+    - https://github.com/jespernohr/helm-charts/releases/download/radarr-1.0.1/radarr-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 6.0.4.10291
     created: "2026-02-23T19:37:49.595728839Z"
     description: A fork of Sonarr to work with movies à la Couchpotato
     digest: 2bce40b1c07b77fbe3d25f87caedb5f929a6096191a43af8a7b775c32f00d7bf
@@ -288,4 +311,4 @@ entries:
     urls:
     - https://jespernohr.github.io/helm-charts/unifi-controller-2.3.0.tgz
     version: 2.3.0
-generated: "2026-02-23T19:37:49.595760271Z"
+generated: "2026-02-24T12:43:35.311895515Z"
