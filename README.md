@@ -12,7 +12,6 @@ A collection of production-ready Helm charts for Kubernetes applications includi
 | [dayz-dedicated-server](./charts/dayz-dedicated-server) | DayZ Dedicated Game Server | ![Version](https://img.shields.io/badge/version-0.1.2-blue) | 0.1.2 |
 | [dayz-dedicated-server-razorbladex401](./charts/dayz-server-razorbladex401) | DayZ Server with custom configs | ![Version](https://img.shields.io/badge/version-1.0.2-blue) | stable |
 | [unifi-controller](./charts/unifi-controller) | Ubiquiti UniFi Network Controller | ![Version](https://img.shields.io/badge/version-2.3.2-blue) | 7.5.176 |
-| [metallb](./charts/metallb) | Load Balancer for bare metal Kubernetes | ![Version](https://img.shields.io/badge/version-0.1.4-blue) | v0.13.11 |
 | [radarr](./charts/radarr) | A fork of Sonarr to work with movies à la Couchpotato | ![Version](https://img.shields.io/badge/version-1.0.0-blue) | 6.0.4.10291 |
 
 ## 🚀 Quick Start
@@ -73,21 +72,6 @@ Deploy Ubiquiti's UniFi Network Controller for managing UniFi devices.
 helm install unifi jespernohr/unifi-controller \
   --set ingress.enabled=true \
   --set ingress.hosts[0].host=unifi.example.com
-```
-
-### MetalLB
-Load balancer implementation for bare metal Kubernetes clusters.
-
-**Features:**
-- Layer 2 and BGP mode support
-- Custom Resource Definitions
-- Speaker and controller components
-- IP address pool management
-
-```bash
-helm install metallb jespernohr/metallb \
-  --namespace metallb-system \
-  --create-namespace
 ```
 
 ### Radarr
