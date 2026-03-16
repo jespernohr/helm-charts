@@ -4,7 +4,8 @@ A collection of Helm charts for Kubernetes
 
 - [DayZ Dedicated Server](https://ghcr.io/jespernohr/dayz-dedicated-server)
 - [UniFi Controller](https://hub.docker.com/r/linuxserver/unifi-controller)
-- [metallb](https://hub.docker.com/r/bitnamicharts/metallb)
+- [Radarr](https://hub.docker.com/r/linuxserver/radarr)
+
 
 
 ## Installation
