@@ -13,7 +13,7 @@ A collection of production-ready Helm charts for Kubernetes applications includi
 | [dayz-dedicated-server-razorbladex401](./charts/dayz-server-razorbladex401) | DayZ Server with custom configs | ![Version](https://img.shields.io/badge/version-1.0.2-blue) | stable |
 | [unifi-controller](./charts/unifi-controller) | Ubiquiti UniFi Network Controller | ![Version](https://img.shields.io/badge/version-2.3.2-blue) | 7.5.176 |
 | [radarr](./charts/radarr) | A fork of Sonarr to work with movies à la Couchpotato | ![Version](https://img.shields.io/badge/version-1.0.0-blue) | 6.0.4.10291 |
-| [homebridge](./charts/homebridge) | Homebridge for Kubernetes | ![Version](https://img.shields.io/badge/version-0.1.0-blue) | latest |
+| [homebridge](./charts/homebridge) | Homebridge for Kubernetes | ![Version](https://img.shields.io/badge/version-0.1.0-blue) | 1.11.4 |
 
 ## 🚀 Quick Start
 
