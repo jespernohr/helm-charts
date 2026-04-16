@@ -11,6 +11,8 @@ image:
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
+  # Uses latest by default to satisfy this chart's "latest Homebridge" goal.
+  # Override this to a fixed tag for reproducible production deployments.
   tag: "latest"
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
