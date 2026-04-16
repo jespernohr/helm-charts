@@ -113,6 +113,28 @@ entries:
     urls:
     - https://github.com/jespernohr/helm-charts/releases/download/dayz-dedicated-server-razorbladex401-1.0.0/dayz-dedicated-server-razorbladex401-1.0.0.tgz
     version: 1.0.0
+  homebridge:
+  - apiVersion: v2
+    appVersion: 1.11.4
+    created: "2026-04-16T07:05:53.298219104Z"
+    description: Homebridge for Kubernetes
+    digest: 09de94fe880f8458457f092b325651779776872eba508fb10617273bce3a679a
+    home: https://github.com/homebridge/homebridge
+    icon: https://raw.githubusercontent.com/homebridge/branding/master/logos/homebridge-color-round-stylized.png
+    keywords:
+    - homebridge
+    - smarthome
+    - homekit
+    maintainers:
+    - name: jespernohr
+    name: homebridge
+    sources:
+    - https://github.com/homebridge/homebridge
+    - https://github.com/homebridge/docker-homebridge
+    type: application
+    urls:
+    - https://github.com/jespernohr/helm-charts/releases/download/homebridge-0.1.0/homebridge-0.1.0.tgz
+    version: 0.1.0
   metallb:
   - apiVersion: v2
     appVersion: v0.13.11
@@ -311,4 +333,4 @@ entries:
     urls:
     - https://jespernohr.github.io/helm-charts/unifi-controller-2.3.0.tgz
     version: 2.3.0
-generated: "2026-02-24T12:43:35.311895515Z"
+generated: "2026-04-16T07:05:53.298249134Z"
